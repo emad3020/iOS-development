@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="12141" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Category" representedClassName=".Category" syncable="YES">
+        <attribute name="category_icon" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <attribute name="category_name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toMemory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Memory" inverseName="toCategory" inverseEntity="Memory" syncable="YES"/>
+        <relationship name="toUser" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="toCategory" inverseEntity="User" syncable="YES"/>
+    </entity>
+    <entity name="Memory" representedClassName=".Memory" syncable="YES">
+        <attribute name="memory_description" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="memory_image" optional="YES" attributeType="Transformable" syncable="YES"/>
+        <relationship name="toCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="toMemory" inverseEntity="Category" syncable="YES"/>
+    </entity>
+    <entity name="User" representedClassName=".User" syncable="YES">
+        <attribute name="user_email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="user_password" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="toCategory" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="toUser" inverseEntity="Category" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Category" positionX="-47" positionY="-139" width="128" height="103"/>
+        <element name="User" positionX="-423" positionY="-139" width="128" height="103"/>
+        <element name="Memory" positionX="-288" positionY="-354" width="128" height="88"/>
+    </elements>
+</model>
